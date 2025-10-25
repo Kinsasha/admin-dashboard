@@ -1,3 +1,7 @@
+html {
+  font-size: clamp(14px, 1.2vw + 1rem, 18px);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,15 +22,71 @@
   background-color: aliceblue;
   grid-column: 2 / -1;
   grid-row: 1 / 2;
-  border: 1px black solid;
+  /* border: 1px black solid; */
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
 }
 .header-images {
   width: 2rem;
   height: 2rem;
 }
+.header-top {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 1.5rem;
+}
+.search-bar,
+.username-bar {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  vertical-align: middle;
+  grid-template-columns: repeat(auto-fit, 1fr);
+}
+.input {
+  height: 1rem;
+  width: clamp(1rem, 20vw, 30rem);
+  border-radius: 25px;
+  padding: 0.5rem;
+  font-size: larger;
+  font-weight: bold;
+  margin-right: 5rem;
+}
+.search {
+  margin-left: 2.5rem;
+  margin-right: 0;
+  height: 3rem;
+  width: 3rem;
+  /* border: 
+  1px black solid; */
+}
+.username-bar {
+  justify-content: end;
+}
+.username {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  margin-right: 5rem;
+}
+.username-icon {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1.5rem;
+}
+.notis {
+  margin-right: 5rem;
+  height: 2rem;
+  width: 2rem;
+}
+.header-bottom {
+  display: grid;
+  grid-auto-flow: column;
+}
 /* sidebar section */
 .sidebar {
   display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
   background-color: red;
   justify-content: center;
   grid-row: 1 / -1;
@@ -49,7 +109,7 @@
   border: 1px black solid;
   margin-bottom: 3rem;
   font-size: 1.5rem;
-  margin-right: 100px;
+  margin-right: 1rem;
 }
 .sidebar-links {
   border: 1px black solid;
