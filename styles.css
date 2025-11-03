@@ -1,6 +1,6 @@
 html {
   font-size: 62.5%;
-  height: 1 vh;
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -12,7 +12,6 @@ html {
 }
 .container {
   display: grid;
-  height: 100vh;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(5, 1fr);
   border: 1px rgb(255, 0, 0) solid;
@@ -24,7 +23,7 @@ html {
   background-color: aliceblue;
   grid-column: 2 / -1;
   grid-row: 1 / 2;
-  /* border: 1px black solid; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   grid-template-rows: auto auto;
   gap: 1.5rem;
 }
@@ -131,6 +130,7 @@ html {
   grid-row: 1 / -1;
   font-weight: bolder;
   border-right: 3px solid grey;
+  height: 100%;
 }
 .dashboard {
   display: grid;
@@ -174,33 +174,184 @@ html {
 /* main section */
 .main {
   grid-row: 2 / -1;
-  background-color: rgb(229, 229, 229);
+  background-color: rgb(217, 217, 218);
   display: grid;
   grid-template-columns: 1fr 1fr 0.8fr;
   grid-template-rows: 0.1fr 1fr 0.1fr;
   grid-template-areas:
-    "h h h"
+    "h h ann"
     "content content trends"
     "f f f";
+  gap: 0.8rem;
 }
 .box-1 {
   grid-area: h;
-  border: 0.5px black solid;
+  /* border: 0.5px black solid; */
   display: grid;
   grid-auto-flow: column;
-  justify-content: ;
+  justify-content: start;
+  align-items: end;
+  padding-left: 1rem;
+}
+.box-1 > p,
+.box-0 > p {
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+  font-size: clamp(7px, 1.2vw + 2rem, 36px);
+  font-weight: bolder;
+  /* margin-left: 2vw; */
+}
+.box-0 {
+  grid-area: ann;
+  /* border: 0.5px black solid; */
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: end;
 }
 .box-2 {
   grid-area: content;
-  border: 0.5px black solid;
+  /* border: 0.5px black solid; */
+  display: grid;
+  grid-template-areas:
+    "box1 box2"
+    "box3 box4"
+    "box5 box6";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+.contentbox {
+  display: grid;
+  background-color: aliceblue;
+  grid-auto-flow: column;
+  height: clamp(8rem, 15rem, 20rem);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+.vertical-line {
+  height: inherit;
+  width: 0.5rem;
+  background-color: rgb(42, 70, 255);
+}
+.content-container {
+  display: grid;
+}
+.content-heading {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  font-size: clamp(4px, 1.2vw + 0.5rem, 24px);
+  font-weight: bolder;
+  position: sticky;
+}
+.content-body {
+  height: 5rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  overflow: auto;
+  scrollbar-width: none;
+  font-size: clamp(4px, 1.2vw + 0.1rem, 12px);
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  font-weight: bolder;
+  opacity: 0.6;
+}
+.content-icons {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.content-images {
+  width: 1.5rem;
+  height: 1.5rem;
+  /* border: 0.5px black solid; */
 }
 .box-3 {
   grid-area: trends;
-  border: 0.5px black solid;
+  /* border: 0.5px black solid; */
+  margin-right: 0.5rem;
+  display: grid;
+  grid-template-areas:
+    "announcments"
+    "trending";
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+}
+.ann-box {
+  grid-area: announcments;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: aliceblue;
+}
+.anns-heading {
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+  font-size: clamp(4px, 1.2vw + 0.3rem, 12px);
+  font-weight: bolder;
+  position: sticky;
+}
+.anns-body {
+  height: 3rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  padding-right: 0.3rem;
+  overflow: hidden;
+  font-size: clamp(4px, 1.2vw + 0.1rem, 10px);
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  font-weight: bolder;
+  opacity: 0.5;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.trending-box {
+  grid-area: trending;
+  display: grid;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: aliceblue;
+}
+.trending-box > p {
+  margin-bottom: 0.2rem;
+  margin-left: 1rem;
+  font-size: clamp(7px, 1.2vw + 1rem, 24px);
+  font-weight: bolder;
+}
+.trends-box {
+  grid-area: announcments;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: aliceblue;
+}
+.trends-heading {
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+  font-size: clamp(4px, 1.2vw + 0.3rem, 12px);
+  font-weight: bolder;
+  position: sticky;
+}
+.trends-body {
+  height: 3rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  padding-right: 0.3rem;
+  overflow: hidden;
+  font-size: clamp(4px, 1.2vw + 0.1rem, 10px);
+  line-height: 1.5;
+  letter-spacing: 0.1rem;
+  font-weight: bolder;
+  opacity: 0.5;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 .box-4 {
   grid-area: f;
-  border: 0.5px black solid;
 }
 .seperator-line {
   width: 100%;
